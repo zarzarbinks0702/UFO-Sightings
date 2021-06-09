@@ -1,7 +1,22 @@
 body {
   font-family: 'Roboto', sans-serif;
+  background-color: #dffff1;
 }
 
 .jumbotron {
   font-family: 'Space Grotesk', sans-serif;
+  background-color: #468092;
+}
+
+table {
+  border-color: #4a5969;
+  background-color: #c5fffe;
+  color: #4f4f4f;
+}
+
+thead {
+  vertical-align: middle;
+  font-family: 'Space Grotesk', sans-serif;
+  border-color: #4a5969;
+  border-style: solid;
 }
