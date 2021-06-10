@@ -1,23 +1,27 @@
-// from data.js
+//from data.js
 var tableData = data;
-// other variables
-var tableBody = d3.select('tbody');
 
+//the filter button
+var filterBtn = d3.select('.btn');
+
+//populate the table
 tableData.forEach((sighting) => {
+  var tableBody = d3.select('.tbody');
   var row = tableBody.append('tr');
-  var datetime = row.append('td');
-  var city = row.append('td');
-  var state = row.append('td');
-  var country = row.append('td');
-  var shape = row.append('td');
-  var duration = row.append('td');
-  var comments = row.append('td');
+  var dtrow = row.append('td').text(sighting.datetime);
+  var cityrow = row.append('td').text(sighting.city);
+  var staterow = row.append('td').text(sighting.state);
+  var countryrow = row.append('td').text(sighting.country);
+  var shaperow = row.append('td').text(sighting.shape);
+  var durationrow = row.append('td').text(sighting.durationMinutes);
+  var commentsrow = row.append('td').text(sighting.comments);
+});
 
-  datetime.text(sighting['datetime']);
-  city.text(sighting['city']);
-  state.text(sighting['state']);
-  country.text(sighting['country']);
-  shape.text(sighting['shape']);
-  duration.text(sighting['durationMinutes']);
-  comments.text(sighting['comments']);
-})
+//filter the data when the filter button is clicked
+filterBtn.on('click', function() {
+  d3.event.preventDefault();
+  var input = d3.select('#text');
+  var inputText = input.property('value');
+  var filteredData = tableData.filter(sighting => sighting.datetime === inputText);
+  console.log(filteredData);
+});
