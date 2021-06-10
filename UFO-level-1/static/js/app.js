@@ -3,7 +3,11 @@ var tableData = data;
 //table body
 var tableBody = d3.select('tbody');
 //the filter button
-var filterBtn = d3.select('.btn');
+var filterBtn = d3.select('#filter-button');
+//the reset button
+var resetBtn = d3.select('#reset-button');
+//the form
+var form = d3.select('#form');
 
 //populate the table
 const tableMaker = (data) => {
@@ -29,4 +33,20 @@ filterBtn.on('click', function() {
   var filteredData = tableData.filter(sighting => sighting.datetime === inputText);
   d3.selectAll('tbody>tr').remove();
   tableMaker(filteredData);
+});
+
+//filter the data when enter is hit
+form.on('submit', function() {
+  d3.event.preventDefault();
+  var input = d3.select('#sighting-date');
+  var inputText = input.property('value');
+  var filteredData = tableData.filter(sighting => sighting.datetime === inputText);
+  d3.selectAll('tbody>tr').remove();
+  tableMaker(filteredData);
+});
+
+//reset the page
+resetBtn.on('click', function () {
+  d3.selectAll('tbody>tr').remove();
+  tableMaker(tableData);
 });
