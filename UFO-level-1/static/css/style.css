@@ -20,3 +20,13 @@ thead {
   border-color: #4a5969;
   border-style: solid;
 }
+
+label {
+  font-family: 'Space Grotesk', sans-serif;
+  color: #4f4f4f;
+  font-size: 16px;
+}
+
+.btn {
+  margin-bottom: 10px;
+}
