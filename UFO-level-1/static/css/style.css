@@ -10,6 +10,7 @@ body {
 
 table {
   border-color: #4a5969;
+  border-style: solid;
   background-color: #c5fffe;
   color: #4f4f4f;
 }
@@ -19,6 +20,14 @@ thead {
   font-family: 'Space Grotesk', sans-serif;
   border-color: #4a5969;
   border-style: solid;
+  font-size: 14px;
+  font-style: bold;
+}
+
+tbody {
+  border-color: #4a5969;
+  border-style: solid;
+  font-size: 12px;
 }
 
 label {

@@ -6,7 +6,7 @@ var filterBtn = d3.select('.btn');
 
 //populate the table
 tableData.forEach((sighting) => {
-  var tableBody = d3.select('.tbody');
+  var tableBody = d3.select('tbody');
   var row = tableBody.append('tr');
   var dtrow = row.append('td').text(sighting.datetime);
   var cityrow = row.append('td').text(sighting.city);
@@ -20,7 +20,7 @@ tableData.forEach((sighting) => {
 //filter the data when the filter button is clicked
 filterBtn.on('click', function() {
   d3.event.preventDefault();
-  var input = d3.select('#text');
+  var input = d3.select('#sighting-date');
   var inputText = input.property('value');
   var filteredData = tableData.filter(sighting => sighting.datetime === inputText);
   console.log(filteredData);
