@@ -14,18 +14,34 @@
       <center><h1>UFO Sightings</h1></center>
       <center><h3>Use the table below to find UFO sightings near you!</h3></center>
     </div>
-    <div class='row'>
+    <div class='col-sm-12'>
+      <h5>Filter Data By:</h5>
       <form id='form'>
         <div class='form-group'>
-          <center><label for='datetime-filter'>Filter Sightings</label></center>
-          <center><label for='datetime-filter'>Use date(M/D/YYYY), city, state (AL), country (US), or shape to filter the UFO sightings.</label></center>
+          <center><label for='datetime-filter'>Date/Time</label></center>
           <input class='form-control' id='sighting-date' name='sighting-filter-by-datetime' type='text' placeholder='1/1/1900'>
         </div>
-        <center>
-          <button id='filter-button' type='button' class='btn btn-default'>Filter</button>
-          <button id='reset-button' type='button' class='btn btn-default'>Reset</button>
-        </center>
+        <div class='form-group'>
+          <center><label for='city-filter'>City</label></center>
+          <input class='form-control' id='sighting-city' name='sighting-filter-by-datetime' type='text' placeholder='CITY'>
+        </div>
+        <div class='form-group'>
+          <center><label for='state-filter'>State</label></center>
+          <input class='form-control' id='sighting-state' name='sighting-filter-by-datetime' type='text' placeholder='ST'>
+        </div>
+        <div class='form-group'>
+          <center><label for='country-filter'>Country</label></center>
+          <input class='form-control' id='sighting-country' name='sighting-filter-by-datetime' type='text' placeholder='US'>
+        </div>
+        <div class='form-group'>
+          <center><label for='shape-filter'>Shape</label></center>
+          <input class='form-control' id='sighting-shape' name='sighting-filter-by-datetime' type='text' placeholder='circle'>
+        </div>
       </form>
+      <center>
+        <button id='filter-button' type='button' class='btn btn-default'>Filter</button>
+        <button id='reset-button' type='button' class='btn btn-default'>Reset</button>
+      </center>
     </div>
     <div class='col-sm-12'>
       <table class='table table-responsive table-bordered'>
