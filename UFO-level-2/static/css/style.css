@@ -34,8 +34,13 @@ label {
   font-family: 'Space Grotesk', sans-serif;
   color: #4f4f4f;
   font-size: 16px;
+  margin: 10px;
 }
 
 .btn {
   margin: 10px;
+}
+
+.form-group {
+  display: inline-flex;
 }
