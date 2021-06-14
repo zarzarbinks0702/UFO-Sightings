@@ -30,7 +30,19 @@ filterBtn.on('click', function() {
   d3.event.preventDefault();
   var input = d3.select('#sighting-date');
   var inputText = input.property('value');
-  var filteredData = tableData.filter(sighting => sighting.datetime === inputText);
+  tableData.forEach((sighting) => {
+    if (sighting.datetime === inputText) {
+      var filteredData = tableData.filter(sighting => sighting.datetime === inputText);
+    } else if (sighting.city === inputText) {
+      var filteredData = tableData.filter(sighting => sighting.city.toLowerCase() === inputText.toLowerCase());
+    } else if (sighting.state === inputText) {
+      var filteredData = tableData.filter(sighting => sighting.state.toLowerCase() === inputText.toLowerCase());
+    } else if (sighting.country === inputText) {
+      var filteredData = tableData.filter(sighting => sighting.country.toLowerCase() === inputText.toLowerCase());
+    } else if (sighting.shape === inputText) {
+      var filteredData = tableData.filter(sighting => sighting.shape === inputText.toLowerCase());
+    }
+  });
   d3.selectAll('tbody>tr').remove();
   tableMaker(filteredData);
 });
@@ -40,7 +52,19 @@ form.on('submit', function() {
   d3.event.preventDefault();
   var input = d3.select('#sighting-date');
   var inputText = input.property('value');
-  var filteredData = tableData.filter(sighting => sighting.datetime === inputText);
+  tableData.forEach((sighting) => {
+    if (sighting.datetime === inputText) {
+      var filteredData = tableData.filter(sighting => sighting.datetime === inputText);
+    } else if (sighting.city === inputText) {
+      var filteredData = tableData.filter(sighting => sighting.city.toLowerCase() === inputText.toLowerCase());
+    } else if (sighting.state === inputText) {
+      var filteredData = tableData.filter(sighting => sighting.state.toLowerCase() === inputText.toLowerCase());
+    } else if (sighting.country === inputText) {
+      var filteredData = tableData.filter(sighting => sighting.country.toLowerCase() === inputText.toLowerCase());
+    } else if (sighting.shape === inputText) {
+      var filteredData = tableData.filter(sighting => sighting.shape === inputText);
+    }
+  });
   d3.selectAll('tbody>tr').remove();
   tableMaker(filteredData);
 });
