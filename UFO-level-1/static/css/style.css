@@ -39,3 +39,7 @@ label {
 .btn {
   margin: 10px;
 }
+
+.form-group {
+  display: inline-flex;
+}

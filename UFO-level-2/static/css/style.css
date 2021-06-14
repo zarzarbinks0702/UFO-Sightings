@@ -44,3 +44,7 @@ label {
 .form-group {
   display: inline-flex;
 }
+
+form h3 {
+  color: #4f4f4f;
+}

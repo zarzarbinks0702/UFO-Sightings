@@ -77,7 +77,24 @@ const filterShape = () => {
 
 //filter the data when the filter button is clicked
 filterBtn.on('click', function() {
-  
+  d3.event.preventDefault();
+  var date = d3.select('#sighting-date');
+  var dateText = date.property('value');
+  var city = d3.select('#sighting-city');
+  var cityText = city.property('value');
+  var state = d3.select('#sighting-state');
+  var stateText = state.property('value');
+  var country = d3.select('#sighting-country');
+  var countryText = country.property('value');
+  var shape = d3.select('#sighting-shape');
+  var shapeText = shape.property('value');
+  var filteredData = tableData.filter(sighting => (sighting.datetime === dateText || dateText === false)
+                                                && (sighting.city.toLowerCase() === cityText.toLowerCase() || cityText === false)
+                                                && (sighting.state.toLowerCase() === stateText.toLowerCase() || stateText === false)
+                                                && (sighting.country.toLowerCase() === countryText.toLowerCase() || countryText === false)
+                                                && (sighting.shape === shapeText.toLowerCase()) || stateText === false);
+  d3.selectAll('tbody>tr').remove();
+  tableMaker(filteredData);
 });
 
 //filter the data when enter is hit
