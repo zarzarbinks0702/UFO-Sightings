@@ -2,12 +2,19 @@
 var tableData = data;
 //table body
 var tableBody = d3.select('tbody');
-//the filter button
-var filterBtn = d3.select('#filter-button');
+//the filter by date button
+var filterDate = d3.select('#filter-button-date');
+//the filter by date button
+var filterCity = d3.select('#filter-button-city');
+//the filter by date button
+var filterState = d3.select('#filter-button-state');
+//the filter by date button
+var filterCountry = d3.select('#filter-button-country');
+//the filter by date button
+var filterShape = d3.select('#filter-button-shape');
 //the reset button
 var resetBtn = d3.select('#reset-button');
-//the form
-var form = d3.select('#form');
+
 
 //populate the table
 const tableMaker = (data) => {
@@ -26,7 +33,7 @@ const tableMaker = (data) => {
 tableMaker(tableData);
 
 //filter data by date/time
-const filterDate = () => {
+const date = () => {
   d3.event.preventDefault();
   var input = d3.select('#sighting-date');
   var inputText = input.property('value');
@@ -35,8 +42,11 @@ const filterDate = () => {
   tableMaker(filteredData);
 };
 
+filterDate.on('click', date);
+filterDate.on('submit', date);
+
 //filter data by city
-const filterCity = () => {
+const city = () => {
   d3.event.preventDefault();
   var input = d3.select('#sighting-city');
   var inputText = input.property('value');
@@ -45,8 +55,11 @@ const filterCity = () => {
   tableMaker(filteredData);
 };
 
+filterCity.on('click', city);
+filterCity.on('submit', city);
+
 //filter data by state
-const filterState = () => {
+const state = () => {
   d3.event.preventDefault();
   var input = d3.select('#sighting-state');
   var inputText = input.property('value');
@@ -55,8 +68,11 @@ const filterState = () => {
   tableMaker(filteredData);
 };
 
+filterState.on('click', state);
+filterState.on('submit', state);
+
 //filter data by country
-const filterCountry = () => {
+const country = () => {
   d3.event.preventDefault();
   var input = d3.select('#sighting-country');
   var inputText = input.property('value');
@@ -65,8 +81,11 @@ const filterCountry = () => {
   tableMaker(filteredData);
 };
 
+filterCountry.on('click', country);
+filterCountry.on('submit', country);
+
 //filter data by shape
-const filterShape = () => {
+const shape = () => {
   d3.event.preventDefault();
   var input = d3.select('#sighting-shape');
   var inputText = input.property('value');
@@ -75,37 +94,8 @@ const filterShape = () => {
   tableMaker(filteredData);
 };
 
-//filter the data when the filter button is clicked
-filterBtn.on('click', function() {
-  d3.event.preventDefault();
-  var date = d3.select('#sighting-date');
-  var dateText = date.property('value');
-  var city = d3.select('#sighting-city');
-  var cityText = city.property('value');
-  var state = d3.select('#sighting-state');
-  var stateText = state.property('value');
-  var country = d3.select('#sighting-country');
-  var countryText = country.property('value');
-  var shape = d3.select('#sighting-shape');
-  var shapeText = shape.property('value');
-  var filteredData = tableData.filter(sighting => (sighting.datetime === dateText || dateText === false)
-                                                && (sighting.city.toLowerCase() === cityText.toLowerCase() || cityText === false)
-                                                && (sighting.state.toLowerCase() === stateText.toLowerCase() || stateText === false)
-                                                && (sighting.country.toLowerCase() === countryText.toLowerCase() || countryText === false)
-                                                && (sighting.shape === shapeText.toLowerCase()) || stateText === false);
-  d3.selectAll('tbody>tr').remove();
-  tableMaker(filteredData);
-});
-
-//filter the data when enter is hit
-form.on('submit', function() {
-  d3.event.preventDefault();
-  var input = d3.select('#sighting-date');
-  var inputText = input.property('value');
-  var filteredData = tableData.filter(sighting => sighting.datetime === inputText);
-  d3.selectAll('tbody>tr').remove();
-  tableMaker(filteredData);
-});
+filterShape.on('click', shape);
+filterShape.on('submit', shape);
 
 //reset the page
 resetBtn.on('click', function () {
